@@ -1,19 +1,34 @@
 productos_list=[]
 
-def validar_texto_vacio(texto):
-    if len(texto.strip())>0:
+def validar_nombre(nombre):
+    if len(nombre.strip()) > 0:
         return True
     else:
-        print("Error, el texto no puede ser vacio")
+        return False
 
-def numero_positivo(numero):
-    if numero>0:
+def validar_categoria(categoria):
+    if len(categoria.strip()) > 0:
         return True
     else:
-        print("Error, el numero debe ser mayor a 0")
+        return False
 
-def esta_disponible(producto):
-    if esta_disponible=="si":
-        producto["disponible"]=True
-    elif esta_disponible=="no":
-        producto["disponible"]=False
+def validar_codigo(codigo, productos):
+    if len(codigo.strip()) > 0:
+        for llave in productos:
+            if llave.upper() == codigo.upper():
+                return False
+        return True
+    else:
+        return False
+
+def validar_precio(precio):
+    if precio > 0:
+        return True
+    else:
+        return False
+
+def validar_disponible(opcion):
+    if opcion.strip().lower() == "s" or opcion.strip().lower() == "n":
+        return True
+    else:
+        return False
